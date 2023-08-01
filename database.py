@@ -7,26 +7,24 @@ class DataBase:
         self.connection = sqlite3.connect(f'{db_name}.db')
         self.cursor = self.connection.cursor()
 
-    def create_table(self, table_name: str, columns_names: list):
-        product, calories, proteins, fats, carbs, category = columns_names
+    def create_table(self, table_name: str):
 
         self.cursor.execute(f"""CREATE TABLE IF NOT EXISTS {table_name}(
-        productsId INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-        {product} TEXT,
-        {calories} REAL,
-        {proteins} REAL,
-        {fats} REAL,
-        {carbs} REAL,
-        {category} TEXT)
+        productId INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+        product TEXT,
+        calories REAL,
+        proteins REAL,
+        fats REAL,
+        carbs REAL,
+        category TEXT)
         """)
 
         self.connection.commit()
 
-    def write_to_table(self, columns_names: list, product_info: list):
-        product, calories, proteins, fats, carbs, category = columns_names
-        product_name, product_calories, product_proteins, product_fats, product_carbs, product_category = columns_names
+    def write_to_table(self, product_info: list):
+        product_name, product_calories, product_proteins, product_fats, product_carbs, product_category = product_info
 
-        self.cursor.execute(f"""INSERT INTO products({product}, {calories}, {proteins}, {fats}, {carbs}, {category}) 
+        self.cursor.execute(f"""INSERT INTO products(product, calories, proteins, fats, carbs, category) 
         VALUES('{product_name}', '{product_calories}', '{product_proteins}', '{product_fats}', '{product_carbs}', '{product_category}');""")
         
         self.connection.commit()
