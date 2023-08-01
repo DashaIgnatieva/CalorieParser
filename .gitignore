@@ -1,4 +1,6 @@
 config_for_parser.ini
+site_data.html
+Products.db
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
