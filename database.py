@@ -13,10 +13,10 @@ class DataBase:
         self.cursor.execute(f"""CREATE TABLE IF NOT EXISTS {table_name}(
         productsId INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
         {product} TEXT,
-        {calories} TEXT,
-        {proteins} TEXT,
-        {fats} TEXT,
-        {carbs} TEXT,
+        {calories} REAL,
+        {proteins} REAL,
+        {fats} REAL,
+        {carbs} REAL,
         {category} TEXT)
         """)
 
