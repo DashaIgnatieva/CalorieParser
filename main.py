@@ -15,7 +15,7 @@ try:
     if site_data.status_code == 200:
         print(f'Соединение установлено, статус: {site_data.status_code}')
     else:
-        print(f'Информация не доступна, код ошибки: {site_data.status_code}')
+        print(f'Информация недоступна, код ошибки: {site_data.status_code}')
         sys.exit()        
 except:
     print(f'Нет соединения')
@@ -72,4 +72,4 @@ for i in range(len(unsorted_data_for_table)):
             print(f'Продукт "{produkt_table_string[0].text}" из категории "{product_type_for_db}" записан')
 
 products_db.cursor_close()
-print(f'Запись таблицы "{table_name}" базы данны "{db_name}.db" завершена')
+print(f'Запись таблицы "{table_name}" базы данных "{db_name}.db" завершена')
